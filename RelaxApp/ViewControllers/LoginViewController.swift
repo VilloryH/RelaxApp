@@ -20,11 +20,24 @@ class LoginViewController: UIViewController {
         return image
     }()
     
+    
+    let fieldSView: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+           stack.spacing = 10.0
+           stack.alignment = .fill
+           stack.distribution = .fillEqually
+       
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
+    
     let loginButton:UIButton =  {
         let button = UIButton()
         button.backgroundColor = UIColor(named: "lightGreen")
         button.setTitle("Log In", for: .normal)
         button.layer.cornerRadius = 30
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 30)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -35,6 +48,7 @@ class LoginViewController: UIViewController {
         button.backgroundColor = UIColor(named: "lightGreen")
         button.setTitle("Log Up", for: .normal)
         button.layer.cornerRadius = 30
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 30)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -43,8 +57,8 @@ class LoginViewController: UIViewController {
         let text = UITextView()
         text.text = "Sign In"
         text.backgroundColor = UIColor(named: "darkGreen")
-        text.textAlignment = .center
-        text.font = UIFont.boldSystemFont(ofSize: 30)
+        text.textAlignment  = .left
+        text.font = UIFont.boldSystemFont(ofSize: 50)
         text.textColor = .white
         text.translatesAutoresizingMaskIntoConstraints = false
         return text
@@ -66,10 +80,25 @@ class LoginViewController: UIViewController {
         eField.returnKeyType = .done
         eField.autocorrectionType = .no
         eField.textColor = .white
-        eField.backgroundColor = .gray
+        eField.backgroundColor = UIColor(named: "darkGreen")
+        eField.attributedPlaceholder = NSAttributedString(string: "Email",
+                                         attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         eField.font = UIFont.boldSystemFont(ofSize: 20)
         eField.translatesAutoresizingMaskIntoConstraints = false
         return eField
+    }()
+    
+    let passField: UITextField = {
+        let pField = UITextField()
+        pField.returnKeyType = .done
+        pField.autocorrectionType = .no
+        pField.textColor = .white
+        pField.isSecureTextEntry = true
+        pField.attributedPlaceholder = NSAttributedString(string: "Password",
+                                                          attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        pField.font = UIFont.boldSystemFont(ofSize: 20)
+        pField.translatesAutoresizingMaskIntoConstraints = false
+        return pField
     }()
     
     override func viewDidLoad() {
@@ -82,44 +111,57 @@ class LoginViewController: UIViewController {
         view.addSubview(loginButton)
         view.addSubview(logupButton)
         view.addSubview(questText)
-        view.addSubview(emailField)
         view.addSubview(logoimage)
         view.addSubview(signInText)
-        configureTextField(x: 0, y: emailField.frame.height - 1, width: emailField.frame.width + 310 , height: 1.0, textField: emailField)
+        //view.addSubview(passField)
+        //view.addSubview(emailField)
+        view.addSubview(fieldSView)
+        
+        fieldSView.addArrangedSubview(emailField)
+        fieldSView.addArrangedSubview(passField)
+        
+        configureTextField(x: 0, y: emailField.frame.height + 60, width: emailField.frame.width + 310 , height: 1.0, textField: emailField)
+        configureTextField(x: 0, y: passField.frame.height + 60, width: passField.frame.width + 310 , height: 1.0, textField: passField)
         
         let constraints = [
             
             logoimage.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
-            logoimage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            logoimage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             logoimage.widthAnchor.constraint(equalToConstant: 60),
             logoimage.heightAnchor.constraint(equalToConstant: 60),
             
             signInText.topAnchor.constraint(equalTo: logoimage.bottomAnchor, constant: 20),
-            signInText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            signInText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            signInText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             signInText.heightAnchor.constraint(equalToConstant: 80),
-            
-            emailField.topAnchor.constraint(equalTo: signInText.bottomAnchor, constant: 40),
-            emailField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-            emailField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
-            emailField.heightAnchor.constraint(equalToConstant: 60),
-          
-            
-            logupButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60),
-            logupButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            logupButton.heightAnchor.constraint(equalToConstant: 60),
-            logupButton.widthAnchor.constraint(equalToConstant: 300),
-            
-            questText.bottomAnchor.constraint(equalTo: logupButton.topAnchor, constant: -10),
-            questText.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            questText.heightAnchor.constraint(equalToConstant: 60),
-            questText.widthAnchor.constraint(equalToConstant: 300),
-            
+         
+            fieldSView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            fieldSView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            fieldSView.topAnchor.constraint(equalTo: signInText.bottomAnchor, constant: 40),
+            fieldSView.heightAnchor.constraint(equalToConstant: 100),
+            fieldSView.bottomAnchor.constraint(equalTo: loginButton.topAnchor, constant: -100),
+        
             loginButton.bottomAnchor.constraint(equalTo: questText.topAnchor, constant: -20),
+            loginButton.topAnchor.constraint(equalTo: fieldSView.bottomAnchor, constant: 100),
+            loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 60),
+            loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60),
             loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             loginButton.heightAnchor.constraint(equalToConstant: 60),
-            loginButton.widthAnchor.constraint(equalToConstant: 300)
-            
-            
+          
+            questText.bottomAnchor.constraint(equalTo: logupButton.topAnchor, constant: -20),
+            questText.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            questText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 60),
+            questText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60),
+            questText.heightAnchor.constraint(equalToConstant: 40),
+           
+            logupButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -80),
+            logupButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            logupButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 60),
+            logupButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60),
+            logupButton.heightAnchor.constraint(equalToConstant: 60),
+     
+          
+          
         ]
         NSLayoutConstraint.activate(constraints)
         
@@ -131,7 +173,7 @@ class LoginViewController: UIViewController {
     {
         let bottomLine = CALayer()
         bottomLine.frame = CGRect(x: x, y: y, width: width, height: height)
-           bottomLine.backgroundColor = UIColor.white.cgColor
+           bottomLine.backgroundColor = UIColor.gray.cgColor
            textField.borderStyle = UITextField.BorderStyle.none
            textField.layer.addSublayer(bottomLine)
     }
