@@ -20,7 +20,6 @@ class LoginViewController: UIViewController {
         return image
     }()
     
-    
     let fieldSView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
@@ -38,10 +37,28 @@ class LoginViewController: UIViewController {
         button.setTitle("Log In", for: .normal)
         button.layer.cornerRadius = 30
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 30)
+        button.addTarget(self, action: #selector(login(_:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
+    @objc func login(_ sender: UIButton){
+        if emailField.text == "login" && passField.text == "123" {
+            let vc = TabBarViewController()
+            vc.modalPresentationStyle = .fullScreen
+            vc.modalTransitionStyle = .coverVertical
+            present(vc, animated: true)
+        }
+        else {present(alertController, animated: true, completion: nil)}
+    }
+    
+    let alertController:UIAlertController = {
+        let alert = UIAlertController(title: "Incorrect", message: "Login or password is incorrect.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+        NSLog("The \"OK\" alert occured.")
+        }))
+        return alert
+    }()
     
     let logupButton:UIButton =  {
         let button = UIButton()
@@ -79,6 +96,7 @@ class LoginViewController: UIViewController {
         let eField = UITextField()
         eField.returnKeyType = .done
         eField.autocorrectionType = .no
+        eField.autocapitalizationType = .none
         eField.textColor = .white
         eField.backgroundColor = UIColor(named: "darkGreen")
         eField.attributedPlaceholder = NSAttributedString(string: "Email",
@@ -103,7 +121,9 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
     view.backgroundColor = UIColor(named: "darkGreen")
-       loginSetUpView()
+      
+        loginSetUpView()
+        
        
     }
     
@@ -113,10 +133,8 @@ class LoginViewController: UIViewController {
         view.addSubview(questText)
         view.addSubview(logoimage)
         view.addSubview(signInText)
-        //view.addSubview(passField)
-        //view.addSubview(emailField)
         view.addSubview(fieldSView)
-        
+        loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
         fieldSView.addArrangedSubview(emailField)
         fieldSView.addArrangedSubview(passField)
         

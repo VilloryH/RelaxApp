@@ -17,9 +17,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
                 window = UIWindow(windowScene: scene)
                 window?.makeKeyAndVisible()
-        let firstVC = ViewController()
+        let firstVC = MainController()
         let secondVC = LoginViewController()
-        let navigationController = UINavigationController(rootViewController: secondVC)
+        let thirdVC = HomeViewController()
+        let fourthVC = ProfileViewController()
+        let navigationController = UINavigationController(rootViewController: firstVC)
         
         window?.rootViewController = navigationController
     }

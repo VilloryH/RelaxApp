@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainController: UIViewController {
 
   
     
@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         mainimage.translatesAutoresizingMaskIntoConstraints = false
         return mainimage
     }()
-    
+   
     
     
     let questText: UITextView = {
@@ -48,6 +48,7 @@ class ViewController: UIViewController {
         button.backgroundColor = UIColor(named: "lightGreen")
         button.setTitle("Log In", for: .normal)
         button.layer.cornerRadius = 30
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 30)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(showLogin(_:)), for: .touchUpInside)
         return button
@@ -55,7 +56,8 @@ class ViewController: UIViewController {
     
     @objc func showLogin(_ sender: UIButton){
         print("go")
-       let vc2 = LoginViewController()
+        let vc2 = LoginViewController()
+       
         vc2.modalPresentationStyle = .fullScreen
         vc2.modalTransitionStyle = .coverVertical
         present(vc2, animated: true)
@@ -92,11 +94,11 @@ class ViewController: UIViewController {
             questText.trailingAnchor.constraint(equalTo: registerButton.leadingAnchor, constant: -5),
             
             registerButton.heightAnchor.constraint(equalToConstant: 60),
-            registerButton.widthAnchor.constraint(equalToConstant: 100),
+            registerButton.widthAnchor.constraint(equalToConstant: 80),
             registerButton.leadingAnchor.constraint(equalTo: questText.trailingAnchor, constant: 5),
             registerButton.topAnchor.constraint(equalTo: enterButton.bottomAnchor, constant: 10),
             registerButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60),
-            registerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+            registerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30)
             
         
         ]
