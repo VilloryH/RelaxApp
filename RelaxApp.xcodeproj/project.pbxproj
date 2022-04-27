@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C15407D281946F600951630 /* ProfileAllDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C15407C281946F600951630 /* ProfileAllDataView.swift */; };
 		0C3C36A12811A81900A28F2A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3C36A02811A81900A28F2A /* ProfileViewController.swift */; };
 		0C3C36A62811AB2400A28F2A /* ImagesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3C36A52811AB2400A28F2A /* ImagesCollectionViewCell.swift */; };
 		0C3C36A82811AB3C00A28F2A /* ImagesModelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3C36A72811AB3C00A28F2A /* ImagesModelCell.swift */; };
 		0C3C36AA2811ACBA00A28F2A /* ImagesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3C36A92811ACBA00A28F2A /* ImagesCollectionView.swift */; };
 		0C4EEDE8280F33B400FC3DD4 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4EEDE7280F33B400FC3DD4 /* LoginModel.swift */; };
 		0C4EEDEB280F3DAA00FC3DD4 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4EEDEA280F3DAA00FC3DD4 /* LoginView.swift */; };
+		0C55E96C28186919007C6079 /* HoroscopeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C55E96B28186919007C6079 /* HoroscopeViewController.swift */; };
+		0C55E97128187D4F007C6079 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 0C55E97028187D4F007C6079 /* SwiftyJSON */; };
+		0C55E97428187DCB007C6079 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0C55E97328187DCB007C6079 /* Alamofire */; };
 		0C65F747281088F10086878F /* BottomCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F746281088F10086878F /* BottomCollectionView.swift */; };
 		0C65F749281089030086878F /* BottomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F748281089030086878F /* BottomCollectionViewCell.swift */; };
 		0C65F74B281089190086878F /* BottomCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F74A281089190086878F /* BottomCellModel.swift */; };
@@ -31,12 +35,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C15407C281946F600951630 /* ProfileAllDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAllDataView.swift; sourceTree = "<group>"; };
 		0C3C36A02811A81900A28F2A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		0C3C36A52811AB2400A28F2A /* ImagesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCollectionViewCell.swift; sourceTree = "<group>"; };
 		0C3C36A72811AB3C00A28F2A /* ImagesModelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesModelCell.swift; sourceTree = "<group>"; };
 		0C3C36A92811ACBA00A28F2A /* ImagesCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCollectionView.swift; sourceTree = "<group>"; };
 		0C4EEDE7280F33B400FC3DD4 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		0C4EEDEA280F3DAA00FC3DD4 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		0C55E96B28186919007C6079 /* HoroscopeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoroscopeViewController.swift; sourceTree = "<group>"; };
 		0C65F746281088F10086878F /* BottomCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCollectionView.swift; sourceTree = "<group>"; };
 		0C65F748281089030086878F /* BottomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCollectionViewCell.swift; sourceTree = "<group>"; };
 		0C65F74A281089190086878F /* BottomCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCellModel.swift; sourceTree = "<group>"; };
@@ -61,6 +67,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C55E97128187D4F007C6079 /* SwiftyJSON in Frameworks */,
+				0C55E97428187DCB007C6079 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +80,8 @@
 			children = (
 				0C3C36A22811AAE600A28F2A /* ProfilePhotoCollection */,
 				0C3C36A02811A81900A28F2A /* ProfileViewController.swift */,
+				0C55E96B28186919007C6079 /* HoroscopeViewController.swift */,
+				0C15407C281946F600951630 /* ProfileAllDataView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -153,6 +163,7 @@
 		0CD92BC328088F49009B8DA8 /* RelaxApp */ = {
 			isa = PBXGroup;
 			children = (
+				0C9D78A52816F7B000BE38E2 /* TabBarViewController.swift */,
 				0C3C369F2811A80100A28F2A /* Profile */,
 				0C65F743281079630086878F /* Home */,
 				0C4EEDE9280F3BA700FC3DD4 /* Login */,
@@ -163,7 +174,6 @@
 				0CD92BCD28088F4A009B8DA8 /* Assets.xcassets */,
 				0CD92BCF28088F4A009B8DA8 /* LaunchScreen.storyboard */,
 				0CD92BD228088F4A009B8DA8 /* Info.plist */,
-				0C9D78A52816F7B000BE38E2 /* TabBarViewController.swift */,
 			);
 			path = RelaxApp;
 			sourceTree = "<group>";
@@ -184,6 +194,10 @@
 			dependencies = (
 			);
 			name = RelaxApp;
+			packageProductDependencies = (
+				0C55E97028187D4F007C6079 /* SwiftyJSON */,
+				0C55E97328187DCB007C6079 /* Alamofire */,
+			);
 			productName = RelaxApp;
 			productReference = 0CD92BC128088F49009B8DA8 /* RelaxApp.app */;
 			productType = "com.apple.product-type.application";
@@ -212,6 +226,10 @@
 				Base,
 			);
 			mainGroup = 0CD92BB828088F49009B8DA8;
+			packageReferences = (
+				0C55E96F28187D4F007C6079 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				0C55E97228187DCB007C6079 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 0CD92BC228088F49009B8DA8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -245,12 +263,14 @@
 				0C8B3F84280C948400F27C11 /* LoginViewController.swift in Sources */,
 				0C9D78A62816F7B000BE38E2 /* TabBarViewController.swift in Sources */,
 				0CD92BC928088F49009B8DA8 /* MainController.swift in Sources */,
+				0C15407D281946F600951630 /* ProfileAllDataView.swift in Sources */,
 				0C3C36A12811A81900A28F2A /* ProfileViewController.swift in Sources */,
 				0C4EEDE8280F33B400FC3DD4 /* LoginModel.swift in Sources */,
 				0C3C36A62811AB2400A28F2A /* ImagesCollectionViewCell.swift in Sources */,
 				0CC45272281044E300532422 /* HomeViewController.swift in Sources */,
 				0C65F74B281089190086878F /* BottomCellModel.swift in Sources */,
 				0CC452702810449200532422 /* HomeCellModel.swift in Sources */,
+				0C55E96C28186919007C6079 /* HoroscopeViewController.swift in Sources */,
 				0CD92BC528088F49009B8DA8 /* AppDelegate.swift in Sources */,
 				0C65F747281088F10086878F /* BottomCollectionView.swift in Sources */,
 				0C65F749281089030086878F /* BottomCollectionViewCell.swift in Sources */,
@@ -474,6 +494,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0C55E96F28187D4F007C6079 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		0C55E97228187DCB007C6079 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0C55E97028187D4F007C6079 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0C55E96F28187D4F007C6079 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		0C55E97328187DCB007C6079 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0C55E97228187DCB007C6079 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0CD92BB928088F49009B8DA8 /* Project object */;
 }

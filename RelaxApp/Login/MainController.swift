@@ -50,7 +50,7 @@ class MainController: UIViewController {
         button.layer.cornerRadius = 30
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 30)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(showLogin(_:)), for: .touchUpInside)
+       
         return button
     }()
     
@@ -74,6 +74,7 @@ class MainController: UIViewController {
         view.addSubview(enterButton)
         view.addSubview(registerButton)
         view.addSubview(questText)
+        enterButton.addTarget(self, action: #selector(showLogin(_:)), for: .touchUpInside)
         
         let constraints = [
             logoImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),

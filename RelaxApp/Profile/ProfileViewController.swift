@@ -25,7 +25,7 @@ class ProfileViewController: UIViewController {
         let button = UIButton()
         button.backgroundColor = UIColor(named: "darkGreen")
         button.setTitle("Exit", for: .normal)
-       
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -70,10 +70,11 @@ class ProfileViewController: UIViewController {
         view.addSubview(profileimage)
         view.addSubview(imagesCollectionView)
         view.addSubview(nameLabel)
+        tappedProfileImage()
         view.backgroundColor = UIColor(named: "darkGreen")
         let constraints = [
             
-            logoimage.topAnchor.constraint(equalTo: view.topAnchor, constant: 60),
+            logoimage.topAnchor.constraint(equalTo: view.topAnchor, constant: 40),
             logoimage.leadingAnchor.constraint(equalTo: rightTopButton.trailingAnchor, constant: 20),
             logoimage.trailingAnchor.constraint(equalTo: rightTopButton.leadingAnchor, constant: -20),
             logoimage.widthAnchor.constraint(equalToConstant: 80),
@@ -86,7 +87,7 @@ class ProfileViewController: UIViewController {
             leftTopButton.widthAnchor.constraint(equalToConstant: 40),
             leftTopButton.heightAnchor.constraint(equalToConstant: 40),
             
-            rightTopButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 60),
+            rightTopButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
             rightTopButton.leadingAnchor.constraint(equalTo: leftTopButton.trailingAnchor, constant: 20),
             rightTopButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             rightTopButton.widthAnchor.constraint(equalToConstant: 60),
@@ -115,6 +116,34 @@ class ProfileViewController: UIViewController {
         
         imagesCollectionView.set(cells: ImagesModelCell.fetchImagesCell())
     }
-
+    
+    func tappedProfileImage(){
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        profileimage.addGestureRecognizer(tapGestureRecognizer)
+        profileimage.isUserInteractionEnabled = true
+    }
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer){
+        
+    }
+    /*
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer){
+        UIImageView.animateKeyframes(withDuration: 0.5, delay: 0, options: [],
+                                     animations:{
+            UIImageView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 13){
+                print("ok")
+                self.profileimage.contentMode = .scaleToFill
+                self.profileimage.frame = CGRect(x: 0, y: 0, width: 350, height: 350)
+                self.profileimage.layer.cornerRadius = 50
+                self.profileimage.layer.borderWidth = 0
+            }
+        },completion: {
+            finished in
+            UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn, animations: {
+                self.profileimage.isHidden = false
+                self.profileimage.frame = CGRect(x: 0, y: 0, width: 350, height: 200)
+            })
+        })
+    }
+*/
 
 }

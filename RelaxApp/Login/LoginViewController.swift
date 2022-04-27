@@ -37,7 +37,6 @@ class LoginViewController: UIViewController {
         button.setTitle("Log In", for: .normal)
         button.layer.cornerRadius = 30
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 30)
-        button.addTarget(self, action: #selector(login(_:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
