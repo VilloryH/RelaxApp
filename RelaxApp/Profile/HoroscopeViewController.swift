@@ -10,26 +10,13 @@ import SwiftyJSON
 import Alamofire
 
 
-enum Horoscope: String {
-    case aquarius = "https://ohmanda.com/api/horoscope/aquarius"
-    case pisces = "https://ohmanda.com/api/horoscope/pisces"
-    case aries = "https://ohmanda.com/api/horoscope/aries"
-    case taurus = "https://ohmanda.com/api/horoscope/taurus"
-    case gemini  = "https://ohmanda.com/api/horoscope/gemini"
-    case cancer  =  "https://ohmanda.com/api/horoscope/cancer"
-    case leo =  "https://ohmanda.com/api/horoscope/leo"
-    case virgo = "https://ohmanda.com/api/horoscope/virgo"
-    case libra = "https://ohmanda.com/api/horoscope/libra"
-    case scorpio = "https://ohmanda.com/api/horoscope/scorpio"
-    case sagittarius = "https://ohmanda.com/api/horoscope/sagittarius"
-    case capricorn = "https://ohmanda.com/api/horoscope/capricorn"
-}
+
 
 class HoroscopeViewController: UIViewController {
     
-    let horo:String = Horoscope.libra.rawValue
   
-
+    let horosign = Horoscope.aquarius.rawValue
+   
    
     let nameLabel: UILabel = {
         let label = UILabel()
@@ -63,7 +50,7 @@ class HoroscopeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getData(url: horo)
+        getData(url: horosign)
       loginSetUpView()
       
     

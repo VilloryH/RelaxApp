@@ -11,10 +11,10 @@ class HomeViewController: UIViewController {
 
     private var homeCollectionView = HomeCollectionView()
     private var bottomCollectionView = BottomCollectionView()
+    private let horocsopeVC = HoroscopeViewController()
     
     let greetingLabel: UILabel = {
         let label = UILabel()
-        label.text = "С возращением, Человек!"
         label.textColor = .white
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
@@ -45,19 +45,33 @@ class HomeViewController: UIViewController {
     let rightTopButton:UIButton =  {
         let button = UIButton()
         button.backgroundColor = UIColor(named: "darkGreen")
-        button.setImage(UIImage(named: "ProfilePic"), for: .normal)
         button.layer.cornerRadius = 30
+        button.contentMode = .scaleAspectFit
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
-    let logoimage:UIImageView = {
-        let image = UIImageView()
-        image.contentMode = .scaleAspectFit
-        image.image = UIImage(named: "Icon")
-        image.translatesAutoresizingMaskIntoConstraints = false
-        return image
+    let logoimage:UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "Icon"), for: .normal)
+        button.layer.cornerRadius = 30
+        button.contentMode = .scaleAspectFit
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
     }()
+    
+    
+    let upImageStackView: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .horizontal
+        stack.spacing = 90
+        stack.alignment = .fill
+        stack.distribution = .fillEqually
+       
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "darkGreen")
@@ -65,39 +79,31 @@ class HomeViewController: UIViewController {
        loginSetUpView()
     }
     
+    
+    
+    
     func loginSetUpView(){
-        view.addSubview(leftTopButton)
-        view.addSubview(logoimage)
-        view.addSubview(rightTopButton)
+        upImageStackView.addArrangedSubview(leftTopButton)
+        upImageStackView.addArrangedSubview(logoimage)
+        upImageStackView.addArrangedSubview(rightTopButton)
+        view.addSubview(upImageStackView)
         view.addSubview(greetingLabel)
         view.addSubview(feelingLabel)
         view.addSubview(homeCollectionView)
         view.addSubview(bottomCollectionView)
-      
+        logoimage.addTarget(self, action: #selector(tappedLogo(_:)), for: .touchUpInside)
+        rightTopButton.setImage(ProfileClass.profileShared.profileData.profileImage, for: .normal)
+        greetingLabel.text = "С возвращением, \(ProfileClass.profileShared.profileData.profileName)"
         
         let constraints = [
             
-            logoimage.topAnchor.constraint(equalTo: view.topAnchor, constant: 60),
-            logoimage.leadingAnchor.constraint(equalTo: rightTopButton.trailingAnchor, constant: 20),
-            logoimage.trailingAnchor.constraint(equalTo: rightTopButton.leadingAnchor, constant: -20),
-            logoimage.widthAnchor.constraint(equalToConstant: 80),
-            logoimage.heightAnchor.constraint(equalToConstant: 80),
-            logoimage.bottomAnchor.constraint(equalTo: greetingLabel.topAnchor, constant: -10),
+            upImageStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            upImageStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            upImageStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            upImageStackView.bottomAnchor.constraint(equalTo: greetingLabel.topAnchor, constant: -10),
+            upImageStackView.heightAnchor.constraint(equalToConstant: 60),
             
-            leftTopButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 60),
-            leftTopButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            leftTopButton.trailingAnchor.constraint(equalTo: logoimage.leadingAnchor, constant: -20),
-            leftTopButton.widthAnchor.constraint(equalToConstant: 40),
-            leftTopButton.heightAnchor.constraint(equalToConstant: 40),
-            
-            rightTopButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 60),
-            rightTopButton.leadingAnchor.constraint(equalTo: leftTopButton.trailingAnchor, constant: 20),
-            rightTopButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            rightTopButton.widthAnchor.constraint(equalToConstant: 60),
-            rightTopButton.heightAnchor.constraint(equalToConstant: 60),
-            
-            
-            greetingLabel.topAnchor.constraint(equalTo: logoimage.bottomAnchor, constant: 10),
+            greetingLabel.topAnchor.constraint(equalTo: upImageStackView.bottomAnchor, constant: 10),
             greetingLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             greetingLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             greetingLabel.bottomAnchor.constraint(equalTo: feelingLabel.topAnchor, constant: -5),
@@ -108,7 +114,6 @@ class HomeViewController: UIViewController {
             feelingLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             feelingLabel.bottomAnchor.constraint(equalTo: homeCollectionView.topAnchor, constant: -5),
             feelingLabel.heightAnchor.constraint(equalToConstant: 30),
-            
             
             homeCollectionView.topAnchor.constraint(equalTo: feelingLabel.bottomAnchor, constant: 10),
             homeCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
@@ -126,6 +131,14 @@ class HomeViewController: UIViewController {
         
         homeCollectionView.set(cells: HomeCellModel.fetchCells())
         bottomCollectionView.set(cells: BottomCellModel.fetchBottomCells())
+        
+    }
+    
+    @objc func tappedLogo(_ sender:UIButton) {
+        
+        horocsopeVC.modalPresentationStyle = .formSheet
+        horocsopeVC.modalTransitionStyle = .coverVertical
+        present(horocsopeVC, animated: true)
         
     }
 

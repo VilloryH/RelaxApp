@@ -10,7 +10,8 @@ import UIKit
 class ProfileViewController: UIViewController {
     
     let imagesCollectionView = ImagesCollectionView()
-
+    
+    
     let leftTopButton:UIButton =  {
         let button = UIButton()
         button.backgroundColor = UIColor(named: "darkGreen")
@@ -41,14 +42,12 @@ class ProfileViewController: UIViewController {
     let profileimage:UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
-        image.image = UIImage(named: "ProfilePic")
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
     
     let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Имя"
         label.textColor = .white
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
@@ -70,7 +69,8 @@ class ProfileViewController: UIViewController {
         view.addSubview(profileimage)
         view.addSubview(imagesCollectionView)
         view.addSubview(nameLabel)
-        tappedProfileImage()
+        profileimage.image = ProfileClass.profileShared.profileData.profileImage
+        nameLabel.text = ProfileClass.profileShared.profileData.profileName
         view.backgroundColor = UIColor(named: "darkGreen")
         let constraints = [
             
@@ -104,7 +104,6 @@ class ProfileViewController: UIViewController {
             nameLabel.bottomAnchor.constraint(equalTo: imagesCollectionView.topAnchor, constant: -30),
             nameLabel.heightAnchor.constraint(equalToConstant: 30),
 
-            
             imagesCollectionView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 120),
             imagesCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             imagesCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
@@ -117,33 +116,6 @@ class ProfileViewController: UIViewController {
         imagesCollectionView.set(cells: ImagesModelCell.fetchImagesCell())
     }
     
-    func tappedProfileImage(){
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
-        profileimage.addGestureRecognizer(tapGestureRecognizer)
-        profileimage.isUserInteractionEnabled = true
-    }
-    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer){
-        
-    }
-    /*
-    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer){
-        UIImageView.animateKeyframes(withDuration: 0.5, delay: 0, options: [],
-                                     animations:{
-            UIImageView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 13){
-                print("ok")
-                self.profileimage.contentMode = .scaleToFill
-                self.profileimage.frame = CGRect(x: 0, y: 0, width: 350, height: 350)
-                self.profileimage.layer.cornerRadius = 50
-                self.profileimage.layer.borderWidth = 0
-            }
-        },completion: {
-            finished in
-            UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn, animations: {
-                self.profileimage.isHidden = false
-                self.profileimage.frame = CGRect(x: 0, y: 0, width: 350, height: 200)
-            })
-        })
-    }
-*/
+   
 
 }
