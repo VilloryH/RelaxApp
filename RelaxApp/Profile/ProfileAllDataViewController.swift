@@ -1,9 +1,3 @@
-//
-//  ProfileAllDataViewController.swift
-//  RelaxApp
-//
-//  Created by Vitaliy Petrovskiy on 27.04.22.
-//
 
 import UIKit
 
@@ -133,8 +127,6 @@ class ProfileAllDataViewController: UIViewController {
         return stack
     }()
     
-  
-    
     let ownStackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
@@ -202,15 +194,9 @@ class ProfileAllDataViewController: UIViewController {
             editImageButton.heightAnchor.constraint(equalToConstant: 60),
             editImageButton.widthAnchor.constraint(equalTo: view.widthAnchor , multiplier: 1/2),
             editImageButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
-            
-
-    
-        
         ]
             
         NSLayoutConstraint.activate(constraints)
-         
     }
     
     
@@ -224,8 +210,4 @@ class ProfileAllDataViewController: UIViewController {
         ProfileClass.profileShared.profileData.horoscope = horoscopeTextField.text ?? ""
     
     }
-    
-  
-  
-
 }

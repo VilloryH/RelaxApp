@@ -19,6 +19,11 @@
 		0C65F747281088F10086878F /* BottomCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F746281088F10086878F /* BottomCollectionView.swift */; };
 		0C65F749281089030086878F /* BottomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F748281089030086878F /* BottomCollectionViewCell.swift */; };
 		0C65F74B281089190086878F /* BottomCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F74A281089190086878F /* BottomCellModel.swift */; };
+		0C6DFFE5282022080087D36F /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6DFFE4282022080087D36F /* PlayerViewController.swift */; };
+		0C6DFFE828202A810087D36F /* track1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0C6DFFE728202A810087D36F /* track1.mp3 */; };
+		0C6DFFEA28202C900087D36F /* TracksModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6DFFE928202C900087D36F /* TracksModel.swift */; };
+		0C6DFFED282032390087D36F /* track2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0C6DFFEB282032390087D36F /* track2.mp3 */; };
+		0C6DFFEE282032390087D36F /* track3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0C6DFFEC282032390087D36F /* track3.mp3 */; };
 		0C8B3F84280C948400F27C11 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8B3F83280C948400F27C11 /* LoginViewController.swift */; };
 		0C9D78A62816F7B000BE38E2 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9D78A52816F7B000BE38E2 /* TabBarViewController.swift */; };
 		0CC4526C2810443400532422 /* HomeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4526B2810443400532422 /* HomeCollectionView.swift */; };
@@ -44,6 +49,11 @@
 		0C65F746281088F10086878F /* BottomCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCollectionView.swift; sourceTree = "<group>"; };
 		0C65F748281089030086878F /* BottomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCollectionViewCell.swift; sourceTree = "<group>"; };
 		0C65F74A281089190086878F /* BottomCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCellModel.swift; sourceTree = "<group>"; };
+		0C6DFFE4282022080087D36F /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		0C6DFFE728202A810087D36F /* track1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = track1.mp3; sourceTree = "<group>"; };
+		0C6DFFE928202C900087D36F /* TracksModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksModel.swift; sourceTree = "<group>"; };
+		0C6DFFEB282032390087D36F /* track2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = track2.mp3; sourceTree = "<group>"; };
+		0C6DFFEC282032390087D36F /* track3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = track3.mp3; sourceTree = "<group>"; };
 		0C8B3F83280C948400F27C11 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0C9D78A52816F7B000BE38E2 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		0CC4526B2810443400532422 /* HomeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionView.swift; sourceTree = "<group>"; };
@@ -134,9 +144,22 @@
 			path = BottomCollection;
 			sourceTree = "<group>";
 		};
+		0C6DFFE6282022CA0087D36F /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				0C6DFFEB282032390087D36F /* track2.mp3 */,
+				0C6DFFEC282032390087D36F /* track3.mp3 */,
+				0C6DFFE728202A810087D36F /* track1.mp3 */,
+				0C6DFFE4282022080087D36F /* PlayerViewController.swift */,
+				0C6DFFE928202C900087D36F /* TracksModel.swift */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
 		0C8B3F85280C98FA00F27C11 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				0C9D78A52816F7B000BE38E2 /* TabBarViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -160,7 +183,7 @@
 		0CD92BC328088F49009B8DA8 /* RelaxApp */ = {
 			isa = PBXGroup;
 			children = (
-				0C9D78A52816F7B000BE38E2 /* TabBarViewController.swift */,
+				0C6DFFE6282022CA0087D36F /* Player */,
 				0C3C369F2811A80100A28F2A /* Profile */,
 				0C65F743281079630086878F /* Home */,
 				0C4EEDE9280F3BA700FC3DD4 /* Login */,
@@ -241,8 +264,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C6DFFEE282032390087D36F /* track3.mp3 in Resources */,
 				0CD92BD128088F4A009B8DA8 /* LaunchScreen.storyboard in Resources */,
 				0CD92BCE28088F4A009B8DA8 /* Assets.xcassets in Resources */,
+				0C6DFFED282032390087D36F /* track2.mp3 in Resources */,
+				0C6DFFE828202A810087D36F /* track1.mp3 in Resources */,
 				0CD92BCC28088F49009B8DA8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -263,6 +289,7 @@
 				0C3C36A62811AB2400A28F2A /* ImagesCollectionViewCell.swift in Sources */,
 				0CC45272281044E300532422 /* HomeViewController.swift in Sources */,
 				0C65F74B281089190086878F /* BottomCellModel.swift in Sources */,
+				0C6DFFE5282022080087D36F /* PlayerViewController.swift in Sources */,
 				0CC452702810449200532422 /* HomeCellModel.swift in Sources */,
 				0C15407F2819499400951630 /* ProfileAllDataViewController.swift in Sources */,
 				0C55E96C28186919007C6079 /* HoroscopeViewController.swift in Sources */,
@@ -272,6 +299,7 @@
 				0C65F749281089030086878F /* BottomCollectionViewCell.swift in Sources */,
 				0C3C36A82811AB3C00A28F2A /* ImagesModelCell.swift in Sources */,
 				0CD92BC728088F49009B8DA8 /* SceneDelegate.swift in Sources */,
+				0C6DFFEA28202C900087D36F /* TracksModel.swift in Sources */,
 				0CC4526E2810447800532422 /* HomeCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

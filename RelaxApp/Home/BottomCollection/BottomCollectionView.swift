@@ -46,7 +46,6 @@ class BottomCollectionView: UICollectionView, UICollectionViewDelegate, UICollec
         cell.mainimage.image = cells[indexPath.row].image
       
         return cell
-        
     }
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize{
             return CGSize(width: 320, height: 200)

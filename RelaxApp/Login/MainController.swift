@@ -50,7 +50,6 @@ class MainController: UIViewController {
         button.layer.cornerRadius = 30
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 30)
         button.translatesAutoresizingMaskIntoConstraints = false
-       
         return button
     }()
     
