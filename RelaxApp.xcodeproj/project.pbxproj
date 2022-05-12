@@ -26,6 +26,7 @@
 		0C6DFFEE282032390087D36F /* track3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0C6DFFEC282032390087D36F /* track3.mp3 */; };
 		0C8B3F84280C948400F27C11 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8B3F83280C948400F27C11 /* LoginViewController.swift */; };
 		0C9D78A62816F7B000BE38E2 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9D78A52816F7B000BE38E2 /* TabBarViewController.swift */; };
+		0CA96DED282C557500C07DA2 /* CollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA96DEC282C557500C07DA2 /* CollectionLayout.swift */; };
 		0CC4526C2810443400532422 /* HomeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4526B2810443400532422 /* HomeCollectionView.swift */; };
 		0CC4526E2810447800532422 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4526D2810447800532422 /* HomeCollectionViewCell.swift */; };
 		0CC452702810449200532422 /* HomeCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4526F2810449200532422 /* HomeCellModel.swift */; };
@@ -56,6 +57,7 @@
 		0C6DFFEC282032390087D36F /* track3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = track3.mp3; sourceTree = "<group>"; };
 		0C8B3F83280C948400F27C11 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0C9D78A52816F7B000BE38E2 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		0CA96DEC282C557500C07DA2 /* CollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionLayout.swift; sourceTree = "<group>"; };
 		0CC4526B2810443400532422 /* HomeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionView.swift; sourceTree = "<group>"; };
 		0CC4526D2810447800532422 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		0CC4526F2810449200532422 /* HomeCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCellModel.swift; sourceTree = "<group>"; };
@@ -117,9 +119,10 @@
 		0C65F743281079630086878F /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				0C65F745281088C00086878F /* BottomCollection */,
 				0C65F744281088B30086878F /* TopCollection */,
+				0C65F745281088C00086878F /* BottomCollection */,
 				0CC45271281044E300532422 /* HomeViewController.swift */,
+				0CA96DEC282C557500C07DA2 /* CollectionLayout.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				0C8B3F84280C948400F27C11 /* LoginViewController.swift in Sources */,
 				0C9D78A62816F7B000BE38E2 /* TabBarViewController.swift in Sources */,
 				0CD92BC928088F49009B8DA8 /* MainController.swift in Sources */,
+				0CA96DED282C557500C07DA2 /* CollectionLayout.swift in Sources */,
 				0C3C36A12811A81900A28F2A /* ProfileViewController.swift in Sources */,
 				0C3C36A62811AB2400A28F2A /* ImagesCollectionViewCell.swift in Sources */,
 				0CC45272281044E300532422 /* HomeViewController.swift in Sources */,

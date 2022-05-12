@@ -11,9 +11,7 @@ import UIKit
 class HomeCollectionViewCell: UICollectionViewCell {
     
     static let reuseId = "HomeCollectionViewCell"
-    
-    
-    
+
     let mainImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit

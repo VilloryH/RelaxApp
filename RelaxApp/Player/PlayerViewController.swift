@@ -19,6 +19,7 @@ class PlayerViewController: UIViewController {
         let label = UILabel()
         label.font = UIFont(name: "Helvetica", size: 25)
         label.textColor = .white
+    
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -93,12 +94,10 @@ class PlayerViewController: UIViewController {
             titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             titleLabel.bottomAnchor.constraint(equalTo: trackImage.topAnchor, constant: -20),
-            
             trackImage.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
             trackImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             trackImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             trackImage.bottomAnchor.constraint(equalTo: buttonsStack.topAnchor, constant: -50),
-            
             buttonsStack.topAnchor.constraint(equalTo: trackImage.bottomAnchor, constant: 20),
             buttonsStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             buttonsStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),

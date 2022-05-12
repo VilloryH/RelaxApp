@@ -51,6 +51,11 @@ class BottomCollectionView: UICollectionView, UICollectionViewDelegate, UICollec
             return CGSize(width: 320, height: 200)
         }
         
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        print("выбрана ячейка \(indexPath.row)")
+    }
+    
     
     
 
