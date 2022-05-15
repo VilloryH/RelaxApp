@@ -2,17 +2,15 @@
 import UIKit
 
 class ProfileAllDataViewController: UIViewController {
-  
-    var selectedHoroscope = ""
     
-    let profileimage:UIImageView = {
+   private let profileimage:UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
     
-    let editImageButton: UIButton = {
+    private let editImageButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = UIColor(named: "darkGreen")
         button.setTitle("Save changes", for: .normal)
@@ -21,8 +19,18 @@ class ProfileAllDataViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
+    private let contactsButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = UIColor(named: "darkGreen")
+        button.setTitle("Contacts", for: .normal)
+        button.layer.cornerRadius = 20
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
 
-    let nameTextField: UITextField = {
+    private let nameTextField: UITextField = {
         let textFiled = UITextField()
         textFiled.font = UIFont.boldSystemFont(ofSize: 20)
         textFiled.borderStyle = .roundedRect
@@ -30,7 +38,7 @@ class ProfileAllDataViewController: UIViewController {
         return textFiled
     }()
     
-    let descName: UILabel = {
+    private let descName: UILabel = {
         let label = UILabel()
         label.text = "Profile name: "
         label.font = UIFont.boldSystemFont(ofSize: 20)
@@ -38,7 +46,7 @@ class ProfileAllDataViewController: UIViewController {
         return label
     }()
     
-    let ageTextField: UITextField = {
+    private let ageTextField: UITextField = {
         let textFiled = UITextField()
         textFiled.font = UIFont.boldSystemFont(ofSize: 20)
         textFiled.borderStyle = .roundedRect
@@ -46,7 +54,7 @@ class ProfileAllDataViewController: UIViewController {
         return textFiled
     }()
     
-    let descAge: UILabel = {
+    private let descAge: UILabel = {
         let label = UILabel()
         label.text = "Age: "
         label.font = UIFont.boldSystemFont(ofSize: 20)
@@ -54,7 +62,7 @@ class ProfileAllDataViewController: UIViewController {
         return label
     }()
     
-    let weightTextField: UITextField = {
+    private let weightTextField: UITextField = {
         let textFiled = UITextField()
         textFiled.font = UIFont.boldSystemFont(ofSize: 20)
         textFiled.borderStyle = .roundedRect
@@ -62,7 +70,7 @@ class ProfileAllDataViewController: UIViewController {
         return textFiled
     }()
     
-    let descWeight: UILabel = {
+    private let descWeight: UILabel = {
         let label = UILabel()
         label.text = "Weight: "
         label.font = UIFont.boldSystemFont(ofSize: 20)
@@ -70,7 +78,7 @@ class ProfileAllDataViewController: UIViewController {
         return label
     }()
     
-    let bloodPressureTextField: UITextField = {
+    private let bloodPressureTextField: UITextField = {
         let textFiled = UITextField()
         textFiled.font = UIFont.boldSystemFont(ofSize: 20)
         textFiled.borderStyle = .roundedRect
@@ -78,7 +86,7 @@ class ProfileAllDataViewController: UIViewController {
         return textFiled
     }()
     
-    let descBloodPressure: UILabel = {
+    private let descBloodPressure: UILabel = {
         let label = UILabel()
         label.text = "Pressure: "
         label.font = UIFont.boldSystemFont(ofSize: 20)
@@ -86,7 +94,7 @@ class ProfileAllDataViewController: UIViewController {
         return label
     }()
     
-    let horoscopeTextField: UITextField = {
+    private let horoscopeTextField: UITextField = {
         let textFiled = UITextField()
         textFiled.font = UIFont.boldSystemFont(ofSize: 20)
         textFiled.borderStyle = .roundedRect
@@ -95,7 +103,7 @@ class ProfileAllDataViewController: UIViewController {
     }()
     
     
-    let descHoroscope: UILabel = {
+    private let descHoroscope: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 20)
         label.text = "Horoscope: "
@@ -105,7 +113,7 @@ class ProfileAllDataViewController: UIViewController {
     }()
    
     
-    let descStackView: UIStackView = {
+    private let descStackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
            stack.spacing = 10.0
@@ -116,7 +124,7 @@ class ProfileAllDataViewController: UIViewController {
         return stack
     }()
     
-    let textFieldStackView: UIStackView = {
+    private  let textFieldStackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
            stack.spacing = 10.0
@@ -127,23 +135,27 @@ class ProfileAllDataViewController: UIViewController {
         return stack
     }()
     
-    let ownStackView: UIStackView = {
+    private let ownStackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
         stack.spacing = 5
         stack.alignment = .fill
         stack.distribution = .fillEqually
-       
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
     
-   
+    private let alertController:UIAlertController = {
+        let alert = UIAlertController(title: "Contacts", message: "Adress: Minsk. Phone: +375333932918", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+        NSLog("The \"OK\" alert occured.")
+        }))
+        return alert
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor (named: "lightGreen")
-       
         setUpView()
         setUpText()
     }
@@ -155,9 +167,7 @@ class ProfileAllDataViewController: UIViewController {
         weightTextField.text = String(ProfileClass.profileShared.profileData.weight)
         bloodPressureTextField.text = ProfileClass.profileShared.profileData.bloodPressure
         horoscopeTextField.text = ProfileClass.profileShared.profileData.horoscope
-        
     }
-
     func setUpView() {
         view.addSubview(profileimage)
         view.addSubview(ownStackView)
@@ -174,40 +184,78 @@ class ProfileAllDataViewController: UIViewController {
         descStackView.addArrangedSubview(descBloodPressure)
         descStackView.addArrangedSubview(descHoroscope)
         view.addSubview(editImageButton)
+        view.addSubview(contactsButton)
         editImageButton.addTarget(self, action: #selector(saveChanges(_:)), for: .touchUpInside)
+        contactsButton.addTarget(self, action: #selector(showContacts(_:)), for: .touchUpInside)
 
         let constraints = [
-            profileimage.topAnchor.constraint(equalTo: view.topAnchor, constant: 70),
+            profileimage.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
             profileimage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 60),
             profileimage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60),
             profileimage.bottomAnchor.constraint(equalTo: ownStackView.topAnchor, constant: -50),
-            profileimage.heightAnchor.constraint(equalToConstant: 100),
-            
+            profileimage.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.2),
+            profileimage.widthAnchor.constraint(equalTo: profileimage.heightAnchor),
             ownStackView.topAnchor.constraint(equalTo: profileimage.bottomAnchor),
             ownStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             ownStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            ownStackView.bottomAnchor.constraint(equalTo: editImageButton.topAnchor, constant: -20),
+            ownStackView.bottomAnchor.constraint(equalTo: contactsButton.topAnchor, constant: -20),
             ownStackView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1/2),
-        
-            editImageButton.topAnchor.constraint(equalTo: ownStackView.bottomAnchor, constant: 20),
-            editImageButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150),
+            contactsButton.topAnchor.constraint(equalTo: ownStackView.bottomAnchor, constant: 20),
+            contactsButton.bottomAnchor.constraint(equalTo: editImageButton.topAnchor, constant: -10),
+            contactsButton.heightAnchor.constraint(equalToConstant: 60),
+            contactsButton.widthAnchor.constraint(equalTo: view.widthAnchor , multiplier: 0.4),
+            contactsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            editImageButton.topAnchor.constraint(equalTo: contactsButton.bottomAnchor, constant: 10),
+            editImageButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
             editImageButton.heightAnchor.constraint(equalToConstant: 60),
             editImageButton.widthAnchor.constraint(equalTo: view.widthAnchor , multiplier: 1/2),
             editImageButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ]
-            
         NSLayoutConstraint.activate(constraints)
     }
     
-    
     @objc func saveChanges(_ sender: UIButton) {
-        
-        ProfileClass.profileShared.profileData.profileImage = profileimage.image ?? UIImage(named: "Relax")!
-        ProfileClass.profileShared.profileData.profileName = nameTextField.text ?? ""
-        ProfileClass.profileShared.profileData.age =  Int(ageTextField.text ?? "") ?? 0
-        ProfileClass.profileShared.profileData.weight = Int(weightTextField.text ?? "") ?? 0
-        ProfileClass.profileShared.profileData.bloodPressure =  bloodPressureTextField.text ?? ""
-        ProfileClass.profileShared.profileData.horoscope = horoscopeTextField.text ?? ""
+        if let unwrappedImage = profileimage.image {
+            ProfileClass.profileShared.profileData.profileImage = unwrappedImage
+        }
+        else {
+            ProfileClass.profileShared.profileData.profileImage = UIImage(named: "Relax")!
+        }
+        if let unwrappedName = nameTextField.text {
+            ProfileClass.profileShared.profileData.profileName = unwrappedName
+        }
+        else{
+            nameTextField.textColor = .red
+        }
+        if let unwrappedAge = Int(ageTextField.text ?? "0") {
+            ProfileClass.profileShared.profileData.age = unwrappedAge
+        }
+        else {
+            ageTextField.textColor = .red
+        }
+        if let unwrappedWeight = Int(weightTextField.text ?? "0") {
+            ProfileClass.profileShared.profileData.weight = unwrappedWeight
+        }
+        else {
+            weightTextField.textColor = .red
+        }
+        if let unwrappedBlood = bloodPressureTextField.text {
+            ProfileClass.profileShared.profileData.bloodPressure = unwrappedBlood
+        }
+        else {
+            bloodPressureTextField.textColor = .red
+        }
+        if let unwrappedHoroscrope = horoscopeTextField.text {
+            ProfileClass.profileShared.profileData.horoscope = unwrappedHoroscrope
+        }
+        else {
+            horoscopeTextField.textColor = .red
+        }
+        self.presentingViewController!.dismiss(animated: true,
+                  completion: nil)
+    }
     
+    @objc func showContacts(_ sender: UIButton){
+        present(alertController, animated: true, completion: nil)
     }
 }

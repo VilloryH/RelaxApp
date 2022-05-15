@@ -9,9 +9,8 @@ import Foundation
 import UIKit
 
 class LoginViewController: UIViewController {
-    
-   
-    
+    let userLogin = ProfileClass.profileShared.profileData.login
+    let userPass = ProfileClass.profileShared.profileData.password
     let logoimage:UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
@@ -19,7 +18,6 @@ class LoginViewController: UIViewController {
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
-    
     let fieldSView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
@@ -30,7 +28,6 @@ class LoginViewController: UIViewController {
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
-    
     let loginButton:UIButton =  {
         let button = UIButton()
         button.backgroundColor = UIColor(named: "lightGreen")
@@ -42,7 +39,7 @@ class LoginViewController: UIViewController {
     }()
     
     @objc func login(_ sender: UIButton){
-        if emailField.text == "login" && passField.text == "123" {
+        if emailField.text == userLogin && passField.text == userPass {
             let vc = TabBarViewController()
             vc.modalPresentationStyle = .fullScreen
             vc.modalTransitionStyle = .coverVertical
@@ -117,15 +114,10 @@ class LoginViewController: UIViewController {
         pField.translatesAutoresizingMaskIntoConstraints = false
         return pField
     }()
-    
     override func viewDidLoad() {
     view.backgroundColor = UIColor(named: "darkGreen")
-      
         loginSetUpView()
-        
-       
     }
-    
     func loginSetUpView(){
         view.addSubview(loginButton)
         view.addSubview(logupButton)
@@ -136,9 +128,8 @@ class LoginViewController: UIViewController {
         loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
         fieldSView.addArrangedSubview(emailField)
         fieldSView.addArrangedSubview(passField)
-        
-        configureTextField(x: 0, y: emailField.frame.height + 60, width: emailField.frame.width + 310 , height: 1.0, textField: emailField)
-        configureTextField(x: 0, y: passField.frame.height + 60, width: passField.frame.width + 310 , height: 1.0, textField: passField)
+        configureTextField(x: 0, y: emailField.frame.height + 30, width: emailField.frame.width + 310 , height: 1.0, textField: emailField)
+        configureTextField(x: 0, y: passField.frame.height + 30, width: passField.frame.width + 310 , height: 1.0, textField: passField)
         
         let constraints = [
             
@@ -176,17 +167,11 @@ class LoginViewController: UIViewController {
             logupButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 60),
             logupButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60),
             logupButton.heightAnchor.constraint(equalToConstant: 60),
-     
-          
-          
         ]
         NSLayoutConstraint.activate(constraints)
         
     }
-    
-    
     func configureTextField(x:CGFloat,y:CGFloat,width:CGFloat,height:CGFloat,textField:UITextField)
-
     {
         let bottomLine = CALayer()
         bottomLine.frame = CGRect(x: x, y: y, width: width, height: height)
@@ -194,7 +179,6 @@ class LoginViewController: UIViewController {
            textField.borderStyle = UITextField.BorderStyle.none
            textField.layer.addSublayer(bottomLine)
     }
-    
 }
 
 extension LoginViewController: UITextFieldDelegate {

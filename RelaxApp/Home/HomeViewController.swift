@@ -103,7 +103,7 @@ class HomeViewController: UIViewController {
         rightTopButton.setImage(ProfileClass.profileShared.profileData.profileImage, for: .normal)
         greetingLabel.text = "С возвращением, \(ProfileClass.profileShared.profileData.profileName)"
         let constraints = [
-            upImageStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            upImageStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 40),
             upImageStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             upImageStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             upImageStackView.bottomAnchor.constraint(equalTo: greetingLabel.topAnchor, constant: -10),
@@ -130,7 +130,7 @@ class HomeViewController: UIViewController {
         ]
         NSLayoutConstraint.activate(constraints)
         set(cells: HomeCellModel.fetchCells())
-//        bottomCollectionView.set(cells: BottomCellModel.fetchBottomCells())
+//      bottomCollectionView.set(cells: BottomCellModel.fetchBottomCells())
     }
     func tappedCollection() {
         bottomCollectionView.set(cells:BottomCellModel.fetchBottomCells())
@@ -154,14 +154,15 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         print(indexPath.row)
-        tappedCollection()
-//        switch indexPath.row {
-//        case 0: bottomCollectionView.set(cells:BottomCellModel.fetchBottomCells())
-//        case 1: bottomCollectionView.set(cells:BottomCellModel.fetchBottomCellsFirst())
-//        case 2: bottomCollectionView.set(cells:BottomCellModel.fetchBottomCellsSecond())
-//        case 3: bottomCollectionView.set(cells:BottomCellModel.fetchBottomCellsThird())
-//        default:bottomCollectionView.set(cells:BottomCellModel.fetchBottomCells())
-//        }
+        self.tappedCollection()
+        switch indexPath.row {
+        case 0: bottomCollectionView.set(cells:BottomCellModel.fetchBottomCells())
+        case 1: bottomCollectionView.set(cells:BottomCellModel.fetchBottomCellsFirst())
+        case 2: bottomCollectionView.set(cells:BottomCellModel.fetchBottomCellsSecond())
+        case 3: bottomCollectionView.set(cells:BottomCellModel.fetchBottomCellsThird())
+        default:bottomCollectionView.set(cells:BottomCellModel.fetchBottomCells())
+        }
+        bottomCollectionView.reloadData()
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 90, height: 120)

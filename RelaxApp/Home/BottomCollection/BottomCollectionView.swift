@@ -29,7 +29,6 @@ class BottomCollectionView: UICollectionView, UICollectionViewDelegate, UICollec
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
    
     func set(cells: [BottomCellModel]) {
         self.cells = cells
@@ -44,7 +43,6 @@ class BottomCollectionView: UICollectionView, UICollectionViewDelegate, UICollec
         cell.titleLabel.text = cells[indexPath.row].title
         cell.subtitleLabel.text = cells[indexPath.row].subtitle
         cell.mainimage.image = cells[indexPath.row].image
-      
         return cell
     }
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize{

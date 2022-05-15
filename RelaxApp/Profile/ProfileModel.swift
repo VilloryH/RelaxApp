@@ -30,12 +30,11 @@ struct ProfileData {
     var weight: Int
     var bloodPressure: String
     var horoscope: String
+    var login: String
+    var password: String
 }
 
 class ProfileClass {
     static let profileShared = ProfileClass()
-    
-    var profileData = ProfileData(profileName: "KoalaMen", profileImage: UIImage(named: "ProfilePic")!, age: 24, weight: 69, bloodPressure: "120/140", horoscope: "libra")
-    
-    
+    var profileData = ProfileData(profileName: "KoalaMen", profileImage: UIImage(named: "ProfilePic")!, age: 24, weight: 69, bloodPressure: "120/140", horoscope: "libra", login: "admin", password: "admin")
 }

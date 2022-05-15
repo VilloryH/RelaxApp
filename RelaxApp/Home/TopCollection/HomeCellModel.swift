@@ -11,6 +11,7 @@ import UIKit
 struct HomeCellModel {
     var mainimage: UIImage
     var mainLabel: String
+
     
     static func fetchCells() -> [HomeCellModel]{
         let firstItem = HomeCellModel(mainimage: UIImage(named: "Calm")!, mainLabel: "Спокойным")
